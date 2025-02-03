@@ -6,6 +6,9 @@
         :key="msg.id"
         v-bind="msg"
       />
+      <!-- :is-my-message="msg.isMyMessage"
+        :message="msg.message"
+        :image="msg.image" -->
     </div>
   </div>
 </template>

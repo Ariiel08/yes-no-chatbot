@@ -1,35 +1,10 @@
 <script setup lang="ts">
 import ChatMessages from '@/components/chat/ChatMessages.vue';
 import MessageBox from '@/components/chat/MessageBox.vue';
-import type { ChatMessage } from '@/interfaces/chat-message.interface';
-import { ref } from 'vue';
+import { useChat } from '@/composables/useChat';
 
-const messages = ref<ChatMessage[]>([
-  {
-    id: new Date().getTime(),
-    message: 'Hello',
-    isMyMessage: true,
-  },
-  {
-    id: new Date().getTime(),
-    message: 'Do you want some coffee?',
-    isMyMessage: true,
-  },
-  {
-    id: new Date().getTime() + 1,
-    message: 'No',
-    isMyMessage: false,
-    image: 'https://yesno.wtf/assets/no/2-101be1e3d8a0ed407c4e3c001ef8fa66.gif'
-  },
-]);
+const { messages, onMessage } = useChat();
 
-const onMessage = ( text: string ) => {
-  messages.value.push({
-    id: new Date().getTime() ,
-    isMyMessage: true,
-    message: text
-  });
-}
 </script>
 
 <!-- Fuente: https://tailwindcomponents.com/component/chat-layout -->
